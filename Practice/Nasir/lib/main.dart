@@ -20,6 +20,7 @@ import 'google_map/google_maps.dart';
 import 'hidden_folder/hidden_folder.dart';
 import 'imagepicker/imagepickerclss.dart';
 import 'sharedpreference/sharedpreference.dart';
+import 'web_view_flutter/web_view_flutter.dart';
 
 void main()=>runApp(MyApp());
 
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreenClass(),
+      home: WebViewFlutterClass(),
     );
   }
 }
