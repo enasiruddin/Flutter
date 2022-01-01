@@ -9,6 +9,7 @@ import 'package:nasir/urllauncherclass/urllancherclass.dart';
 
 
 import 'carosel_slider/carosel_slider.dart';
+import 'check_box/check_box.dart';
 import 'country_app/homepage.dart';
 import 'countrycapital/allcountry.dart';
 import 'countrycapital/countrycapital.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: WebViewFlutterClass(),
+      home: CheckBoxClass(),
     );
   }
 }
