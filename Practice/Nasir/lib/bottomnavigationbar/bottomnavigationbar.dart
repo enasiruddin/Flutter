@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tasfia/practicedisplaylist/practiceuser_display.dart';
-import 'package:tasfia/tabbar/tabbarclass.dart';
+import 'package:nasir/practicedisplaylist/practiceuser_display.dart';
+import 'package:nasir/tabbar/tabbarclass.dart';
 
 class BottomNavigationBarClass extends StatefulWidget {
   const BottomNavigationBarClass({Key? key}) : super(key: key);

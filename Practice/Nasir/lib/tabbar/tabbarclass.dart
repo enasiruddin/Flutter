@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tasfia/practicedisplaylist/practiceuser_display.dart';
+import 'package:nasir/practicedisplaylist/practiceuser_display.dart';
 
 class TabBarClass extends StatefulWidget {
   const TabBarClass({Key? key}) : super(key: key);
