@@ -16,6 +16,7 @@ import 'curvedNavigationBar/curvedNavigationBar.dart';
 import 'datetimepicker/datetimepickerclass.dart';
 import 'dropdownbtnclass/dropdownbtnclass.dart';
 import 'google_map/google_maps.dart';
+import 'hidden_folder/hidden_folder.dart';
 import 'imagepicker/imagepickerclss.dart';
 
 void main()=>runApp(MyApp());
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Carosel_Slider(),
+      home: HiddenFolderClass(),
     );
   }
 }
