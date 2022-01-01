@@ -3,6 +3,7 @@ import 'package:nasir/modelbottomsheet/model_bottomsheet_class.dart';
 import 'package:nasir/searchbar/searchbarclass.dart';
 import 'package:nasir/simple_calculator/simple_calculator_class.dart';
 import 'package:nasir/sliverappbar/sliverappbarclass.dart';
+import 'package:nasir/splashscreen/splashscreen.dart';
 import 'package:nasir/switchcls/switchcls.dart';
 import 'package:nasir/urllauncherclass/urllancherclass.dart';
 
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SharedPreferenceClass(),
+      home: SplashScreenClass(),
     );
   }
 }
