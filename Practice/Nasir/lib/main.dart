@@ -18,6 +18,7 @@ import 'dropdownbtnclass/dropdownbtnclass.dart';
 import 'google_map/google_maps.dart';
 import 'hidden_folder/hidden_folder.dart';
 import 'imagepicker/imagepickerclss.dart';
+import 'sharedpreference/sharedpreference.dart';
 
 void main()=>runApp(MyApp());
 
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HiddenFolderClass(),
+      home: SharedPreferenceClass(),
     );
   }
 }
