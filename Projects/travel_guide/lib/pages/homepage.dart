@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:travel_guide/pages/region.dart';
 import 'package:travel_guide/widgets/appbardecoration.dart';
+import 'package:travel_guide/widgets/static_variable.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,7 +19,7 @@ class _HomePageState extends State<HomePage> {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: appBarDecoration(context, "Home Page"),
+      appBar: appBarDecoration(context, ""),
       body: _bodyUi(),
     );
   }
@@ -50,10 +55,59 @@ class _HomePageState extends State<HomePage> {
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
            crossAxisCount: 2
            ),
-            itemCount: 6,
+            itemCount: StaticVariables.HomeData.length,
             itemBuilder: (context, index){
               return _gridBuilder(index);
             }
+        ),
+        SizedBox(height: 20,),
+        Container(
+
+          height: 150,
+          width: 50,
+          color: Colors.grey,
+          child: Image.asset('images/sajek1.jpg',width: 100, fit: BoxFit.fill,),
+          ),
+        SizedBox(height: 20,),
+        Card(
+          color: Colors.white70,
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(width: 20,),
+                IconButton(onPressed: ()async{
+                 if(await canLaunch('https://www.facebook.com/')){
+                      await launch('https://www.facebook.com/');
+                    };
+                 }, icon:
+                  Icon(FontAwesomeIcons.facebook,size: 40,color: Colors.blue,),),
+                SizedBox(width: 30,),
+                IconButton(onPressed: ()async{
+                  if(await canLaunch('https://twitter.com/')){
+                    await launch('https://twitter.com/');
+                  };
+                }, icon:
+                Icon(FontAwesomeIcons.twitter,size: 40,color: Colors.blue,),),
+                SizedBox(width: 25,),
+                IconButton(onPressed: ()async{
+                 if(await canLaunch('https://www.instagram.com/')){
+                 await launch('https://www.instagram.com/');
+                 };
+                 }, icon:
+                Icon(FontAwesomeIcons.instagram,size: 40,color: Colors.red[400],),),
+                SizedBox(width: 30,),
+                IconButton(onPressed: ()async{
+                  if(await canLaunch('https://www.youtube.com/')){
+                    await launch('https://www.youtube.com/');
+                  };
+                }, icon:
+                Icon(FontAwesomeIcons.youtube,size: 40,color: Colors.red,),),
+                SizedBox(width: 30,),
+              ],
+            ),
+          ),
         )
       ],
     );
@@ -62,8 +116,10 @@ class _HomePageState extends State<HomePage> {
   Widget _gridBuilder(int index){
     return InkWell(
       onTap: (){
-
-      },
+        if(index==0||index==1) {
+          Navigator.push(context, MaterialPageRoute(builder: (context) =>
+              rrrr(index:index,region:StaticVariables.HomeData[index])));
+        }},
       child: Card(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -76,18 +132,10 @@ class _HomePageState extends State<HomePage> {
                     : index==4? Icons.face
                     : index==5? Icons.home
                     : Icons.home,
-              size: 25, color: Colors.green,
+              size: 50, color: Colors.green,
             ),
-            Text(
-
-              index==0? 'Travel Bangladesh'
-                  : index==1? 'Forein Travel'
-                  : index==2? 'Travel Blog'
-                  : index==3? 'Favourite Place'
-                  : index==4? 'Video'
-                  : index==5? 'Saved Info'
-                  : 'extra'
-              , style: TextStyle(color: Colors.green),)
+            Text(StaticVariables.HomeData[index],
+              style: TextStyle(color: Colors.green,fontSize: 20),)
           ],
         ),
       ),
