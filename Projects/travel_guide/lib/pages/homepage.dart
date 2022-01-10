@@ -69,21 +69,21 @@ class _HomePageState extends State<HomePage> {
           child: Image.asset('images/sajek1.jpg',width: 100, fit: BoxFit.fill,),
           ),
         SizedBox(height: 20,),
-        Card(
-          color: Colors.white70,
-          child: Padding(
-            padding: const EdgeInsets.all(10),
+        Padding(
+          padding: const EdgeInsets.all(15),
+          child: Card(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(width: 20,),
+                SizedBox(width: 30,),
                 IconButton(onPressed: ()async{
                  if(await canLaunch('https://www.facebook.com/')){
                       await launch('https://www.facebook.com/');
                     };
                  }, icon:
                   Icon(FontAwesomeIcons.facebook,size: 40,color: Colors.blue,),),
-                SizedBox(width: 30,),
+                SizedBox(width: 25,),
                 IconButton(onPressed: ()async{
                   if(await canLaunch('https://twitter.com/')){
                     await launch('https://twitter.com/');
@@ -97,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                  };
                  }, icon:
                 Icon(FontAwesomeIcons.instagram,size: 40,color: Colors.red[400],),),
-                SizedBox(width: 30,),
+                SizedBox(width: 25,),
                 IconButton(onPressed: ()async{
                   if(await canLaunch('https://www.youtube.com/')){
                     await launch('https://www.youtube.com/');
