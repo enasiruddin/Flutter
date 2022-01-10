@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'pages/crud.dart';
 import 'pages/homepage.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         hintColor: Colors.white
       ),
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: Crud(),
     );
   }
 }
