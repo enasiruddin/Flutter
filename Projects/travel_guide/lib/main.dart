@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         hintColor: Colors.white
       ),
       debugShowCheckedModeBanner: false,
-      home: Crud(),
+      home: HomePage(),
     );
   }
 }

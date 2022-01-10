@@ -30,6 +30,21 @@ class _CrudState extends State<Crud> {
                       child: ListTile(
                         title: Text( networkData['name'] ),
                         subtitle: Text(networkData['email'] ),
+                        trailing: SizedBox(
+                          width: 100,
+                          child: Row(
+                            children: [
+                              IconButton(
+                                onPressed: (){},
+                                icon: Icon(Icons.edit),
+                              ),
+                              IconButton(
+                                onPressed: (){},
+                                icon: Icon(Icons.delete),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   }

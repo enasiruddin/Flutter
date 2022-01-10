@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travel_guide/data/travel_data.dart';
 import 'package:travel_guide/model/travel_model.dart';
+import 'package:travel_guide/pages/spot_details.dart';
 import 'package:travel_guide/widgets/appbardecoration.dart';
 
 class sp extends StatefulWidget {
@@ -34,7 +35,13 @@ class _spState extends State<sp> {
         itemCount: travelList.length,
         itemBuilder: (context, index) {
           return InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> SpotDetails(
+                spotname: travelList[index].spotname,
+                timage: travelList[index].timage,
+                tdescription: travelList[index].tdescription,
+              )));
+              },
             child: Container(
               margin: EdgeInsets.only(bottom: 15, left: 10, right: 10),
               decoration: BoxDecoration(
@@ -55,7 +62,7 @@ class _spState extends State<sp> {
                       topLeft: Radius.circular(15),
                     ),
                     child: Image.asset(
-                      'images/sajek1.jpg',
+                      '${travelList[index].timage}',
                       height: 180,
                       fit: BoxFit.cover,
                     ),
