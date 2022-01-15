@@ -108,7 +108,7 @@ class _Upload_ImageState extends State<Upload_Image> {
                     itemCount: snapshot.data!.docs.length,
                     itemBuilder: (contex, index){
                       QueryDocumentSnapshot querysnapshot = snapshot.data!.docs[index];
-                      print("${querysnapshot['img']}");
+                      // print("${querysnapshot['img']}");
                       return InkWell(
                         onTap: (){
                           Navigator.push(
@@ -121,7 +121,7 @@ class _Upload_ImageState extends State<Upload_Image> {
                         child: Hero(
                           tag: querysnapshot['img'],
                           child: Card(
-                            child: Image.network("${querysnapshot['img']}", fit: BoxFit.fill),
+                            child: Image.network(querysnapshot['img'], fit: BoxFit.fill),
                           ),
                         ),
                       );
