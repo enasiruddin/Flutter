@@ -4,6 +4,8 @@ import 'pages/crud.dart';
 import 'pages/homepage.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import 'pages/upload_img.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         hintColor: Colors.white
       ),
       debugShowCheckedModeBanner: false,
-      home: Crud(),
+      home: Upload_Image(),
     );
   }
 }
