@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import 'pages/count_provider.dart';
+import 'pages/counter_class.dart';
 import 'pages/crud.dart';
+import 'pages/crud_sir.dart';
 import 'pages/homepage.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -17,13 +21,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primaryColor: Colors.green,
-        hintColor: Colors.white
+    return ChangeNotifierProvider(
+      create: (context) => CountProvider(),
+      child: MaterialApp(
+        theme: ThemeData(
+          primaryColor: Colors.green,
+          hintColor: Colors.white
+        ),
+        debugShowCheckedModeBanner: false,
+        home: RetriveData(),
       ),
-      debugShowCheckedModeBanner: false,
-      home: Upload_Image(),
     );
   }
 }
