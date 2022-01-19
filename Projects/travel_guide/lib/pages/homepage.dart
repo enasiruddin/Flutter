@@ -118,7 +118,7 @@ class _HomePageState extends State<HomePage> {
       onTap: (){
         if(index==0||index==1) {
           Navigator.push(context, MaterialPageRoute(builder: (context) =>
-              rrrr(index:index,region:StaticVariables.HomeData[index])));
+              RegionPage(index:index,region:StaticVariables.HomeData[index])));
         }},
       child: Card(
         child: Column(

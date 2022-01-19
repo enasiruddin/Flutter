@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'pages/addtravel_spot.dart';
 import 'pages/count_provider.dart';
 import 'pages/counter_class.dart';
 import 'pages/crud.dart';
@@ -21,15 +22,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => CountProvider(),
+    return MultiProvider(
+      // create: (context) => CountProvider(),
+      providers: [
+        ChangeNotifierProvider(create: (context) => CountProvider()),
+      ],
       child: MaterialApp(
         theme: ThemeData(
           primaryColor: Colors.green,
           hintColor: Colors.white
         ),
         debugShowCheckedModeBanner: false,
-        home: RetriveData(),
+        home: HomePage(),
       ),
     );
   }

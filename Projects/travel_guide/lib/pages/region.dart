@@ -3,23 +3,31 @@ import 'package:travel_guide/pages/sport.dart';
 import 'package:travel_guide/widgets/appbardecoration.dart';
 import 'package:travel_guide/widgets/static_variable.dart';
 
-class rrrr extends StatefulWidget {
+import 'addtravel_spot.dart';
+
+class RegionPage extends StatefulWidget {
   int? index;
 String? region;
 
   @override
-  _rrrrState createState() => _rrrrState();
+  _RegionPageState createState() => _RegionPageState();
 
-  rrrr({this.index, this.region});
+  RegionPage({this.index, this.region});
 }
 
-class _rrrrState extends State<rrrr> {
+class _RegionPageState extends State<RegionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBarDecoration(context,"${widget.region}"),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> AddTravelSpot()));
+        },
+        child: Icon(Icons.add),
+      ),
       body: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 2 , crossAxisSpacing: 3),
           itemCount: widget.index==0?StaticVariables.TravelBD.length
           :StaticVariables.TravelWorld.length,
           itemBuilder: (context,index){
