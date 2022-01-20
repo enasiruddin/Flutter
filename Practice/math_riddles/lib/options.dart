@@ -1,25 +1,35 @@
 import 'package:flutter/material.dart';
-import './option.dart';
-
 class Options extends StatelessWidget {
-  final _randomOptions;
-  final Function _answerChoosenHandler;
-  Options(this._randomOptions, this._answerChoosenHandler);
+  final randomOptions;
+   final Function _answerChoosenHandler;
+   Options(this.randomOptions, this._answerChoosenHandler);
 
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      padding: const EdgeInsets.all(20),
-      crossAxisSpacing: 10,
-      mainAxisSpacing: 10,
-      crossAxisCount: 2,
-      shrinkWrap: true,
-      children: [
-        Option(_randomOptions[0], _answerChoosenHandler),
-        Option(_randomOptions[1], _answerChoosenHandler),
-        Option(_randomOptions[2], _answerChoosenHandler),
-        Option(_randomOptions[3], _answerChoosenHandler),
-      ],
-    );
+    Size size = MediaQuery.of(context).size;
+    return GridView.builder(
+        shrinkWrap: true,
+        physics: ScrollPhysics(),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 5,
+            mainAxisSpacing: 5
+        ),
+        itemCount: 4,
+        itemBuilder: (context, index){
+          return InkWell(
+            onTap: (){
+              _answerChoosenHandler(randomOptions[index]);
+            },
+            child: Card(
+              elevation: 10,
+              color: Theme.of(context).primaryColor,
+              child: Container(
+                alignment: Alignment.center,
+                child: Text("${randomOptions[index]}", style: TextStyle(fontSize: size.width*0.08, color: Colors.white),),
+              ),
+            ),
+          );
+        });
   }
 }

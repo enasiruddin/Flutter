@@ -7,7 +7,7 @@ class FinalResult extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String resultImg = _totalResult >= 15 ? 'welldone' : 'badscore';
+     String resultImg = _totalResult >= 15 ? 'welldone' : 'badscore';
     return Container(
       width: double.infinity,
       child: Column(
@@ -21,8 +21,6 @@ class FinalResult extends StatelessWidget {
               height: 200,
             ),
           ),
-
-          // Others widget combination
           Expanded(
             child: Container(
               margin: const EdgeInsets.only(bottom: 50),
@@ -62,10 +60,10 @@ class FinalResult extends StatelessWidget {
                   ),
                   Container(
                     decoration: BoxDecoration(
-//                      border: Border.all(
-//                        color: Colors.white,
-//                        width: 2.0,
-//                      ),
+                     border: Border.all(
+                       color: Colors.white,
+                       width: 2.0,
+                     ),
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: RaisedButton(
@@ -79,7 +77,9 @@ class FinalResult extends StatelessWidget {
                         ),
                       ),
                       color: Colors.teal,
-                      onPressed: _resetGame(),
+                      onPressed: (){
+                        _resetGame();
+                      },
                       elevation: 5,
                     ),
                   )

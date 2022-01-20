@@ -1,42 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:koukicons/play2.dart';
 
 class StartGame extends StatelessWidget {
-  final Function _startGame;
-  StartGame(this._startGame);
+   final Function _startGame;
+   StartGame(this._startGame);
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Column(
+       // mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
+          width: size.width,
+          alignment: Alignment.center,
           padding: const EdgeInsets.all(20.0),
           margin: const EdgeInsets.symmetric(vertical: 40),
           child: Image.asset('images/welcome.png'),
           height: 200,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+          padding: EdgeInsets.all(20),
           child: Text(
-            'Welcome, What are you looking for? Press PLAY button and check how good you are in MATH :)',
-            style: TextStyle(
-              fontFamily: 'Lobster',
-              fontSize: 20,
-              color: Colors.tealAccent,
-            ),
+            "Welcome. What are you looking for? Press Play button and check how good you are in MATH.",
+            style: TextStyle(fontSize: 18, color: Colors.white),
             textAlign: TextAlign.center,
           ),
         ),
-        Container(
-          margin: const EdgeInsets.only(top: 50),
-          child: GestureDetector(
-            child: KoukiconsPlay2(
-              height: 150,
-              width: 150,
-            ),
-            onTap: _startGame(),
+        GestureDetector(
+          onTap: (){
+            _startGame();
+          },
+          child: Container(
+            child: Icon(Icons.play_arrow_outlined, size: 120,),
           ),
-        )
+        ),
       ],
     );
   }
