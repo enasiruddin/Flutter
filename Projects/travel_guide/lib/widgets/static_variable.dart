@@ -34,7 +34,6 @@ class StaticVariables{
    'Naogaon',
   'Jashore',
   'Satkhira',
-
    'Narail',
    'Chuadanga',
    'Kushtia',
@@ -77,9 +76,8 @@ class StaticVariables{
    'Mymensingh',
   'Jamalpur',
    'Netrokona',
-
-
   ];
+
   static const TravelWorld=[
     'Afghanistan',
     'Albania',
