@@ -10,6 +10,7 @@ import 'pages/homepage.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'pages/upload_img.dart';
+import 'travel_provider/travel_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
       // create: (context) => CountProvider(),
       providers: [
         ChangeNotifierProvider(create: (context) => CountProvider()),
+        ChangeNotifierProvider(create: (context) => TravelProvider()),
       ],
       child: MaterialApp(
         theme: ThemeData(

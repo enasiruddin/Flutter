@@ -42,7 +42,7 @@ class TravelProvider extends ChangeNotifier {
     final int timestemp = DateTime.now().millisecond;
     String id = travelModel.spotname! + timestemp.toString();
     final String submitDate = DateFormat("dd-MMM-yyyy/hh:mm:aa")
-        .format(DateTime.fromMillisecondsSinceEpoch(timestemp));
+        .format(DateTime.now());
     firebase_storage.Reference storageReference = firebase_storage
         .FirebaseStorage.instance.ref().child('Travel Spot Img').child(id);
     firebase_storage.UploadTask storageUploadTask = storageReference.putFile(imageFile);
@@ -59,9 +59,9 @@ class TravelProvider extends ChangeNotifier {
           'travelregion': travelModel.travelregion,
           'travelspot': travelModel.travelspot,
           'timestemp': timestemp,
-          'submitDate': null,
+          'submitDate': submitDate,
         });
-        Navigator.pop(context);
+         Navigator.pop(context);
       }, onError: (error) {
         Navigator.pop(context);
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
