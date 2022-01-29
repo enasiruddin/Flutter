@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           hintColor: Colors.white
         ),
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        home: Upload_Image(),
       ),
     );
   }

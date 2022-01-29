@@ -49,7 +49,12 @@ class _TravelSpotState extends State<TravelSpot> {
   Widget _bodyUI(TravelProvider travelProvider) {
     return GridView.builder(
         gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 1,
+              mainAxisSpacing: 10,
+              mainAxisExtent: 350,
+              crossAxisSpacing: 10
+            ),
         itemCount: travelProvider.travelSpotList.length,
         itemBuilder: (context, index) {
           return InkWell(
@@ -61,17 +66,19 @@ class _TravelSpotState extends State<TravelSpot> {
               )));
               },
             child: Container(
-              margin: EdgeInsets.only(bottom: 15, left: 10, right: 10),
+              margin: EdgeInsets.only(top: 10, bottom: 16, left: 10, right: 10),
               decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.grey,
-                        blurRadius: 5,
-                        spreadRadius: 3,
-                        offset: Offset(0, 3))
-                  ]),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.1),
+                    blurRadius: 5.0,
+                    spreadRadius: 3.0,
+                    offset: Offset(0,3)
+                  )
+                ]
+              ),
               child: Column(
                 children: [
                   ClipRRect(
@@ -82,6 +89,7 @@ class _TravelSpotState extends State<TravelSpot> {
                     child: Image.network(
                       '${travelProvider.travelSpotList[index].timage}',
                       height: 180,
+                      width: double.maxFinite,
                       fit: BoxFit.cover,
                     ),
                   ),

@@ -135,6 +135,8 @@ class _Upload_ImageState extends State<Upload_Image> {
                     physics: ScrollPhysics(),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
+                      mainAxisExtent: 260,
+
                     ),
                     itemCount: snapshot.data!.docs.length,
                     itemBuilder: (contex, index){
@@ -152,7 +154,27 @@ class _Upload_ImageState extends State<Upload_Image> {
                         child: Hero(
                           tag: querysnapshot['img'],
                           child: Card(
-                            child: Image.network(querysnapshot['img'], fit: BoxFit.fill),
+                            child: Column(
+                              children: [
+                                Image.network(querysnapshot['img'], fit: BoxFit.fill, height: 200,),
+                                Row(
+                                  children: [
+                                    RaisedButton(
+                                        onPressed: ()async{
+                                          await deleteImage(querysnapshot.id, context);
+                                        },
+                                      child: Text('Delete'),
+                                    ),
+                                    RaisedButton(
+                                        onPressed: ()async{
+                                          await UpdateImg(querysnapshot.id);
+                                        },
+                                      child: Text('Update'),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       );
