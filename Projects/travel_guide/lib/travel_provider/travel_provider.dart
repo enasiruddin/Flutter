@@ -58,8 +58,8 @@ class TravelProvider extends ChangeNotifier {
           'description': travelModel.tdescription,
           'travelregion': travelModel.travelregion,
           'travelspot': travelModel.travelspot,
-          'timestemp': timestemp,
-          'submitDate': submitDate,
+          'timestemp': timestemp.toString(),
+          'submitDate': submitDate.toString(),
         });
          Navigator.pop(context);
       }, onError: (error) {
@@ -77,6 +77,34 @@ class TravelProvider extends ChangeNotifier {
           )));
     });
   }
+
+  Future<void> getTravelSpot(String travelspot) async {
+    try {
+      await FirebaseFirestore.instance.collection('travel_spots')
+          .where('travelspot', isEqualTo: travelspot).get().then((snapShot) {
+        _travelSpotList.clear();
+        for (var element in snapShot.docChanges) {
+          TravelModel travelModels = TravelModel(
+            id: element.doc['id'],
+            spotname: element.doc['spotname'],
+            timage: element.doc['image'],
+            tdescription: element.doc['description'],
+            travelregion: element.doc['travelregion'],
+            travelspot: element.doc['travelspot'],
+            timestemp: element.doc['timestemp'],
+            submitDate: element.doc['submitDate'],
+          );
+          _travelSpotList.add(travelModels);
+        }
+      });
+
+      notifyListeners();
+      print("Length: " + _travelSpotList.length.toString());
+    } catch (error) {
+      'error.toString()';
+    }
+  }
+
 
 // Future<void> getFaculty() async {
 //   //final String id = await getPreferenceId();

@@ -26,7 +26,7 @@ class _SpotDetailsState extends State<SpotDetails> {
         child: ListView(
           children: [
             ClipRRect(
-              child: Image.asset(
+              child: Image.network(
                 '${widget.timage}',
                 height: 180,
                 fit: BoxFit.cover,

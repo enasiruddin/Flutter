@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/math_riddles.iml" filepath="$PROJECT_DIR$/math_riddles.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android/math_riddles_android.iml" filepath="$PROJECT_DIR$/android/math_riddles_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/math_riddles.iml" filepath="$PROJECT_DIR$/.idea/math_riddles.iml" />
     </modules>
   </component>
 </project>
