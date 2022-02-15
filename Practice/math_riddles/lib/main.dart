@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:math_riddles/homepage.dart';
 
+import 'starting_page.dart';
+
 void main(){
   runApp(MyApp());
 }
@@ -14,10 +16,10 @@ class MyApp extends StatelessWidget {
       title: 'MathRiddles',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.teal,
+        primarySwatch: Colors.blueGrey,
         visualDensity: VisualDensity.adaptivePlatformDensity
       ),
-      home: Homepage("Math Riddles"),
+      home: Starting_Page("Math Riddles"),
     );
   }
 }

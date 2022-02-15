@@ -10,7 +10,8 @@ import 'start_game.dart';
 class Homepage extends StatefulWidget {
   //const Homepage({Key? key}) : super(key: key);
   String? title;
-  Homepage(this.title);
+  int level;
+  Homepage(this.title, this.level);
 
   @override
   _HomepageState createState() => _HomepageState();
@@ -27,7 +28,10 @@ class _HomepageState extends State<Homepage> {
   int _totalScore = 0;
   int _timeOut = 5;
   late Timer _timer;
-
+  random(min, max){
+    var rn = new Random();
+    return min + rn.nextInt(max - min);
+  }
 
   List<int> _optionListPositionArr = [];
   int _answerPosition = 0;
@@ -35,7 +39,7 @@ class _HomepageState extends State<Homepage> {
   var _randomOptions ;
 
   int _generateRandomFalseOption(List<int> _optionList){
-    int _randomFalseOption = Random().nextInt(11) + Random().nextInt(11);
+    int _randomFalseOption = random(widget.level-10,widget.level) + random(widget.level-10,widget.level);
     if(_optionList.contains(_randomFalseOption)){
        _randomFalseOption = _generateRandomFalseOption(_optionList);
     }
@@ -43,8 +47,8 @@ class _HomepageState extends State<Homepage> {
   }
 
   void _generateOptions(){
-    _firstNum = Random().nextInt(11);
-    _secondNum = Random().nextInt(11);
+    _firstNum = random(widget.level-10,widget.level);
+    _secondNum = random(widget.level-10,widget.level);
     _answer = _firstNum + _secondNum;
 
     _optionListPositionArr = [0,1,2,3];
